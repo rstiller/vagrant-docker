@@ -22,6 +22,11 @@ provider = (ARGV[2] || ENV['VAGRANT_DEFAULT_PROVIDER'] || :virtualbox).to_sym
 Vagrant.configure("2") do |config|
 
     ###################################
+    # DEFINE PUPPET PROVISIONER
+    ###################################
+    config.vm.provision :puppet
+    
+    ###################################
     # DEFINE VM FOR VIRTUAL BOX
     ###################################
     config.vm.define :"#{hostname}" do |cfg|
