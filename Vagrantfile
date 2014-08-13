@@ -30,10 +30,12 @@ Vagrant.configure("2") do |config|
     # DEFINE VM FOR VIRTUAL BOX
     ###################################
     config.vm.define :"#{hostname}" do |cfg|
-        cfg.vm.provision :shell,
-            path:       "./vbox.sh",
-            privileged: true,
-            args:       ["#{hostname}", ports.keys.join(','), "#{base_image_name}"]
+        if provider == :virtualbox
+            cfg.vm.provision :shell,
+                path:       "./vbox.sh",
+                privileged: true,
+                args:       ["#{hostname}", ports.keys.join(','), "#{base_image_name}"]
+        end
     end
 
     ###################################
