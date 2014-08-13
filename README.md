@@ -29,7 +29,7 @@ ssh docker # inside the virtualbox vm
 
 If you make changes to the Dockerfile you need
 to stop and remove the docker container,
-rebuilt the image and start a new container.
+rebuild the image and start a new container.
 
 from a linux host:
 
